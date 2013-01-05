@@ -1,0 +1,26 @@
+# clong
+
+FIXME: write description
+
+## Usage
+
+One issue is that I need to connect to a remote Postgresql 8.4 database
+via a tunnel, with: 
+
+    psql -h localhost process earthuser
+
+However if I have Postgresql 9.1 server installed and running, this won't work.
+Until a better solution presents itself, as the postgres user stop the local 
+9.1 server via:
+    
+    /etc/init.d/postgres [start|stop] 
+
+This allows the usage of psql over the tunnel as:
+
+    psql -h localhost -p 5432 process earthuser
+
+## License
+
+Copyright (C) 2013 josh finken <josh.finken@gmail.com>
+
+Distributed under the Eclipse Public License, the same as Clojure.
