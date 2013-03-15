@@ -2,6 +2,25 @@
 
 FIXME: write description
 
+## database setup
+    CREATE USER clong WITH PASSWORD 'clong';
+     
+    CREATE DATABASE clongdb;
+     
+    GRANT ALL PRIVILEGES ON DATABASE clongdb TO clong;
+
+I then modified /etc/postgresql/9.1/main/pg_hba.conf, changing the line:
+
+    local   all    all     peer
+
+to
+
+    local   all    all     md5
+
+and restart postgres with
+
+    sudo /etc/init.d/postgresql restart
+
 ## Usage
 
 One issue is that I need to connect to a remote Postgresql 8.4 database

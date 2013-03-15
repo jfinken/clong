@@ -16,7 +16,7 @@
    :password "clong"})
 
 (defmigration add-teams-table
-  ;; code be executed when migrating the schema "up" using "migrate"
+  ;; code to be executed when migrating the schema "up" using "migrate"
   (up [] (create clongdb
            (table :teams (integer :id :primary-key )
              (varchar :general_mgr 255 :not-null )
@@ -25,3 +25,18 @@
              (integer :lossess))))
   ;; Code to be executed when migrating schema "down" using "rollback"
   (down [] (drop (table :teams ))))
+
+(defmigration add-games-table
+  ;; code to be executed when migrating the schema 'up' using 'migrate'
+  (up [] (create clongdb
+           (table :games (integer :id :primary-key)
+             (integer :home_team_id)
+             (integer :away_team_id)
+             (timestamp :start_time (default (now)))
+             (timestamp :end_time)
+             (integer :winning_score)
+             (integer :losing_score)
+             (integer :winning_team_id))))
+  (down [] (drop (table :games))))
+
+
