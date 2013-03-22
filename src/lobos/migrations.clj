@@ -22,7 +22,7 @@
              (varchar :general_mgr 255 :not-null )
              (varchar :team_name 255 :not-null )
              (integer :wins)
-             (integer :lossess))))
+             (integer :losses))))
   ;; Code to be executed when migrating schema "down" using "rollback"
   (down [] (drop (table :teams ))))
 

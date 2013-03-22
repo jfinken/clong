@@ -21,6 +21,10 @@ and restart postgres with
 
     sudo /etc/init.d/postgresql restart
 
+Does the following work:
+
+    psql clongdb -U clong -W
+
 ## Usage
 
 One issue is that I need to connect to a remote Postgresql 8.4 database
